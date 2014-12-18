@@ -1,0 +1,29 @@
+task printTime() {
+    println new Date()
+}
+
+task printNames() {
+    doFirst {
+        println "Привет ${project.'xerox.user.name1'}"
+    }
+
+    doLast{
+        println "Пока ${project.'xerox.user.name1'}"
+    }
+    onlyIf{
+        println " ${new Date()[Calendar.DAY_OF_WEEK]} $dayOfWork"
+        (new Date()[Calendar.DAY_OF_WEEK]).toString() == dayOfWork
+    }
+
+}
+
+task send(type: MyTask)
+
+task a(dependsOn:[b,c])
+
+task b()
+
+task c(depandsOn:[x])
+
+task x()
+
