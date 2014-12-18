@@ -12,9 +12,8 @@ List list = ["Jan", "Dec", "Feb", "Dec"]
 println list
 def objt = 'dec'
 
-def duplicates = new Equalator()
-int count = duplicates.calculateDuplicates(list, objt, { it ->
-((String) it).equalsIgnoreCase(objt)
-})
+count = Equalator.calculateDuplicates(list, objt) { it, obj ->
+((String) it).equalsIgnoreCase(obj)
+}
 
 println "count = $count"
